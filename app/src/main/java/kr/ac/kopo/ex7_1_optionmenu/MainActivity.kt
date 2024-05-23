@@ -6,19 +6,23 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.graphics.rotationMatrix
 
 class MainActivity : AppCompatActivity() {
     lateinit var linear : LinearLayout
-    lateinit var btn : Button
+    lateinit var editDegree : EditText
+    lateinit var imgV : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         linear = findViewById<LinearLayout>(R.id.linear)
-//        btn = findViewById<Button>(R.id.btn)
+        editDegree = findViewById<EditText>(R.id.editDegree)
+        imgV = findViewById<ImageView>(R.id.imgV)
     }
 
     // 옵션메뉴 등록
@@ -32,26 +36,24 @@ class MainActivity : AppCompatActivity() {
 
     // 항목이 선택되었을 때 이벤트 처리할 수 있는 메소드
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when(item.itemId) {
-            R.id.itemRed -> {
-                linear.setBackgroundColor(Color.RED)
+            R.id.itemRotate -> {
+                imgV.rotation += editDegree.text.toString().toFloat()
                 return true
             }
-            R.id.itemGreen -> {
-                linear.setBackgroundColor(Color.GREEN)
+            R.id.han -> {
+                imgV.setImageResource(R.drawable.han)
+                item.setChecked(true)
                 return true
             }
-            R.id.itemBlue -> {
-                linear.setBackgroundColor(Color.BLUE)
+            R.id.chu -> {
+                imgV.setImageResource(R.drawable.chu)
+                item.setChecked(true)
                 return true
             }
-            R.id.btnRotate -> {
-                btn.rotation += 60f
-                return true
-            }
-            R.id.btnZoomin -> {
-                btn.scaleX = 2f
+            R.id.bum -> {
+                imgV.setImageResource(R.drawable.bum)
+                item.setChecked(true)
                 return true
             }
         }
