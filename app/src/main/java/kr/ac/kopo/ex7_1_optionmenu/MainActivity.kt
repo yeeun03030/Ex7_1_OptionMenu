@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         linear = findViewById<LinearLayout>(R.id.linear)
-        btn = findViewById<Button>(R.id.btn)
+//        btn = findViewById<Button>(R.id.btn)
     }
 
     // 옵션메뉴 등록
